@@ -1,5 +1,4 @@
-// MTA1NjY1NjI0OTU4MTc0MDEyMg.GVY96-.6tFI3uSCZpfDBrPdm4Xik5iPq29q9-ObvxsGlQ
-// https://discord.com/api/oauth2/authorize?client_id=1056656249581740122&redirect_uri=https%3A%2F%2Fwww.google.com%2F&response_type=code&scope=voice
+
 
 const Discord = require('discord.js');
 const ytdl = require('ytdl-core');
