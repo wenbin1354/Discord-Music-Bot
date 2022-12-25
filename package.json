@@ -1,0 +1,27 @@
+{
+	"name": "discord-music-bot",
+	"version": "1.0.0",
+	"description": "my music bot",
+	"main": "DiscordMusicBot.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/wenbin1354/Discord-Music-Bot.git"
+	},
+	"keywords": [
+		"Music"
+	],
+	"author": "WenBin Lin",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/wenbin1354/Discord-Music-Bot/issues"
+	},
+	"homepage": "https://github.com/wenbin1354/Discord-Music-Bot#readme",
+	"dependencies": {
+		"discord.js": "^14.7.1",
+		"ytdl-core": "^4.11.2"
+	}
+}
