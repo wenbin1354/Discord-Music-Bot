@@ -1,0 +1,9 @@
+{
+    "TOKEN": "MTA1NjY1NjI0OTU4MTc0MDEyMg.GDTLSH.0AscA_fCL4GJ8gd5p3uULrnK_04_3hpUFDy8no",
+    "MAX_PLAYLIST_SIZE": 1000,
+    "PREFIX": "wbb!",
+    "PRUNING": false,
+    "LOCALE": "zh_cn",
+    "STAY_TIME": 20,
+    "DEFAULT_VOLUME": 100
+}
