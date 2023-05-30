@@ -1,71 +1,94 @@
-import { AudioResource, createAudioResource, StreamType } from "@discordjs/voice";
+import {
+	AudioResource,
+	createAudioResource,
+	StreamType,
+} from "@discordjs/voice";
 import youtube from "youtube-sr";
-import { getInfo } from "ytdl-core";
-import ytdl from "ytdl-core-discord";
 import { i18n } from "../utils/i18n";
-import { videoPattern } from "../utils/patterns";
+import { videoPattern, isURL } from "../utils/patterns";
+const { stream, video_basic_info } = require("play-dl");
 
 export interface SongData {
-  url: string;
-  title: string;
-  duration: number;
+	url: string;
+	title: string;
+	duration: number;
 }
 
 export class Song {
-  public readonly url: string;
-  public readonly title: string;
-  public readonly duration: number;
+	public readonly url: string;
+	public readonly title: string;
+	public readonly duration: number;
 
-  public constructor({ url, title, duration }: SongData) {
-    this.url = url;
-    this.title = title;
-    this.duration = duration;
-  }
+	public constructor({ url, title, duration }: SongData) {
+		this.url = url;
+		this.title = title;
+		this.duration = duration;
+	}
 
-  public static async from(url: string = "", search: string = "") {
-    const isYoutubeUrl = videoPattern.test(url);
-    // const isScUrl = scRegex.test(url);
+	public static async from(url: string = "", search: string = "") {
+		const isYoutubeUrl = videoPattern.test(url);
 
-    let songInfo;
+		let songInfo;
 
-    if (isYoutubeUrl) {
-      songInfo = await getInfo(url);
+		if (isYoutubeUrl) {
+			songInfo = await video_basic_info(url);
 
-      return new this({
-        url: songInfo.videoDetails.video_url,
-        title: songInfo.videoDetails.title,
-        duration: parseInt(songInfo.videoDetails.lengthSeconds)
-      });
-    } else {
-      const result = await youtube.searchOne(search);
+			return new this({
+				url: songInfo.video_details.url,
+				title: songInfo.video_details.title,
+				duration: parseInt(songInfo.video_details.durationInSec),
+			});
+		} else {
+			const result = await youtube.searchOne(search);
 
-      songInfo = await getInfo(`https://youtube.com/watch?v=${result.id}`);
+			result ? null : console.log(`No results found for ${search}`); // This is for handling the case where no results are found (spotify links for example)
 
-      return new this({
-        url: songInfo.videoDetails.video_url,
-        title: songInfo.videoDetails.title,
-        duration: parseInt(songInfo.videoDetails.lengthSeconds)
-      });
-    }
-  }
+			if (!result) {
+				let err = new Error(`No search results found for ${search}`);
+				err.name = "NoResults";
+				if (isURL.test(url)) err.name = "InvalidURL";
 
-  public async makeResource(): Promise<AudioResource<Song> | void> {
-    let stream;
+				throw err;
+			}
 
-    let type = this.url.includes("youtube.com") ? StreamType.Opus : StreamType.OggOpus;
+			songInfo = await video_basic_info(
+				`https://youtube.com/watch?v=${result.id}`
+			);
 
-    const source = this.url.includes("youtube") ? "youtube" : "soundcloud";
+			return new this({
+				url: songInfo.video_details.url,
+				title: songInfo.video_details.title,
+				duration: parseInt(songInfo.video_details.durationInSec),
+			});
+		}
+	}
 
-    if (source === "youtube") {
-      stream = await ytdl(this.url, { quality: "highestaudio", highWaterMark: 1 << 25 });
-    }
+	public async makeResource(): Promise<AudioResource<Song> | void> {
+		let playStream;
 
-    if (!stream) return;
+		let type = this.url.includes("youtube.com")
+			? StreamType.Opus
+			: StreamType.OggOpus;
 
-    return createAudioResource(stream, { metadata: this, inputType: type, inlineVolume: true });
-  }
+		const source = this.url.includes("youtube") ? "youtube" : "soundcloud";
 
-  public startMessage() {
-    return i18n.__mf("play.startedPlaying", { title: this.title, url: this.url });
-  }
+		if (source === "youtube") {
+			playStream = await stream(this.url);
+		}
+
+		if (!stream) return;
+
+		return createAudioResource(playStream.stream, {
+			metadata: this,
+			inputType: playStream.type,
+			inlineVolume: true,
+		});
+	}
+
+	public startMessage() {
+		return i18n.__mf("play.startedPlaying", {
+			title: this.title,
+			url: this.url,
+		});
+	}
 }

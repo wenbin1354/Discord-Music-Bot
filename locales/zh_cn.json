@@ -1,150 +1,158 @@
 {
-  "help": {
-    "description": "列出所有指令",
-    "embedTitle": "{botname} 帮助",
-    "embedDescription": "所有的指令清单"
-  },
-  "loop": {
-    "description": "变更音乐重复设定",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "result": "重复播放已经 {loop}"
-  },
-  "lyrics": {
-    "description": "取得当前播放的歌曲歌词",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "lyricsNotFound": "找不到 {title} 的歌词",
-    "embedTitle": "{title} - 歌词"
-  },
-  "move": {
-    "description": "移动歌曲到队列的其他位置",
-    "errorNotQueue": "队列中没有歌曲",
-    "usagesReply": "用法: {prefix}move <歌曲编号>",
-    "result": "<@{author}> 🚚 从音乐队列中移动 **{title}** 至 {index}"
-  },
-  "nowplaying": {
-    "description": "显示现在播放什么",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "embedTitle": "正在播放",
-    "live": " ◉ 直播",
-    "timeRemaining": "剩余时间: {time}"
-  },
-  "pause": {
-    "description": "暂停当前歌曲",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "result": "<@{author}> ⏸ 暂停了歌曲"
-  },
-  "ping": {
-    "description": "查看机器人延迟平均值",
-    "result": "📈 API延迟平均值: {ping} 毫秒"
-  },
-  "play": {
-    "description": "播放 YouTube 或 Soundcloud 的音乐",
-    "errorNotChannel": "你必须先加入语音频道!",
-    "errorNotInSameChannel": "你必须跟 {user} 在同一个频道裡",
-    "usageReply": "用法: {prefix}play <YouTube 网址 | 影片名称 | Soundcloud 网址>",
-    "missingPermissionConnect": "无法连结至语音频道，没有权限",
-    "missingPermissionSpeak": "无法发言，没有权限",
-    "queueAdded": "✅ **{title}** 已经被 <@{author}> 加入音乐队列",
-    "cantJoinChannel": "无法加入语音频道: {error}",
-    "queueEnded": "❌ 音乐队列完结",
-    "queueError": "错误: {error}",
-    "startedPlaying": "🎶 开始播放: **{title}**",
-    "skipSong": "<@{author}> ⏩ 跳过了歌曲",
-    "pauseSong": "<@{author}> ⏸ 暂停了歌曲 music.",
-    "resumeSong": "<@{author}> ▶ 恢复了音乐!",
-    "unmutedSong": "<@{author}> 🔊 解除静音了!",
-    "mutedSong": "<@{author}> 🔇 静音了音乐!",
-    "decreasedVolume": "<@{author}> 🔉 降低了音量, 目前音量为 {volume}%",
-    "increasedVolume": "<@{author}> 🔊 增加了音量, 目前音量为 {volume}%",
-    "loopSong": "<@{author}> 重复播放，目前是 {loop}",
-    "stopSong": "<@{author}> ⏹ 停止了歌曲!",
-    "leaveChannel": "正在离开语音频道...",
-    "songNotFound": "没有找到曲目",
-    "songAccessErr": "视频不可用"
-  },
-  "playlist": {
-    "description": "播放 YouTube 的播放清单",
-    "usagesReply": "用法: {prefix}playlist <YouTube 播放清单网址 | 播放清单名称>",
-    "errorNotChannel": "你必须先加入语音频道!",
-    "errorNotInSameChannel": "你必须跟 {user} 在同一个频道裡",
-    "missingPermissionConnect": "无法加入语音频道，没有讯息",
-    "missingPermissionSpeak": "我无法在语音频道裡说话，请确定我有相关的权限!",
-    "errorNotFoundPlaylist": "没有找到播放清单 :(",
-    "fetchingPlaylist": "⌛ 正在取得播放清单...",
-    "playlistCharLimit": "\n播放清单大于限制的歌曲数目...",
-    "startedPlaylist": "<@{author}> 开始播放播放清单",
-    "cantJoinChannel": "无法加入语音频道: {error}"
-  },
-  "queue": {
-    "description": "列出音乐队列",
-    "missingPermissionMessage": "没有 {permission} 权限",
-    "errorNotQueue": "❌ **现在没有任何歌曲正在播放**",
-    "currentPage": "目前页面 - ",
-    "embedTitle": "音乐队列\n",
-    "embedCurrentSong": "**当前歌曲 - [{title}]({url})**\n\n{info}"
-  },
-  "remove": {
-    "description": "从音乐队列里移除歌曲",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "usageReply": "用法: {prefix}remove <歌曲编号>",
-    "result": "<@{author}> ❌ 从队列里移除了 **{title}**"
-  },
-  "resume": {
-    "description": "恢復播放",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "resultNotPlaying": "<@{author}> ▶ 恢復了播放!",
-    "errorPlaying": "队列没有被暂停"
-  },
-  "search": {
-    "description": "搜寻以及选择歌曲",
-    "usageReply": "用法: {prefix}{name} <影片名称>",
-    "errorAlreadyCollector": "讯息接收器已经在这个频道上启用",
-    "errorNotChannel": "你必须先加入语音频道!",
-    "resultEmbedTitle": "**回复你想要播放的歌曲代码**",
-    "resultEmbedDesc": "搜寻{search}的结果"
-  },
-  "shuffle": {
-    "description": "随机排序音乐队列",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "result": "<@{author}> 🔀 随机排序了音乐队列"
-  },
-  "skip": {
-    "description": "跳过当前歌曲",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "result": "<@{author}> ⏭ 跳过了歌曲"
-  },
-  "skipto": {
-    "description": "跳到指定的歌曲",
-    "usageReply": "用法: {prefix}{name} <歌曲编号>",
-    "errorNotQueue": "现在没有任何歌曲在播放",
-    "errorNotValid": "目前队列里只有 {length} 首歌!",
-    "result": "<@{author}> ⏭ 跳过了 {arg} 歌曲"
-  },
-  "stop": {
-    "description": "停止音乐队列",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "result": "<@{author}> ⏹ 停止了队列!"
-  },
-  "uptime": {
-    "description": "查看WBB在线时间",
-    "result": "时间: `{days} 天,{hours} 小时, {minutes} 分钟, {seconds} 秒`"
-  },
-  "volume": {
-    "description": "变更目前歌曲音量",
-    "errorNotQueue": "现在没有任何歌曲正在播放",
-    "errorNotChannel": "你必须先加入语音频道!",
-    "currentVolume": "🔊 当前音量为: **{volume}%**",
-    "errorNotNumber": "用数字来变更音量",
-    "errorNotValid": "用 0 - 100 的数字",
-    "result": "音量设置为: **{arg}%**"
-  },
-  "common": {
-    "on": "**启动**",
-    "off": "**关闭**",
-    "enabled": "**开启**",
-    "disabled": "**关闭**",
-    "errorNotChannel": "请先先加入一个Voice Channel",
-    "cooldownMessage": "等 {time} 秒后再用 `{name}` ",
-    "errorCommand": "错误"
-  }
+	"help": {
+		"description": "列出所有指令",
+		"embedTitle": "{botname} 帮助",
+		"embedDescription": "所有的指令清单"
+	},
+	"loop": {
+		"description": "变更音乐重复设定",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"result": "重复播放已经 {loop}"
+	},
+	"lyrics": {
+		"description": "取得当前播放的歌曲歌词",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"lyricsNotFound": "找不到 {title} 的歌词",
+		"embedTitle": "{title} - 歌词"
+	},
+	"move": {
+		"description": "移动歌曲到队列的其他位置",
+		"errorNotQueue": "队列中没有歌曲",
+		"usagesReply": "用法: {prefix}move <歌曲编号>",
+		"result": "<@{author}> 🚚 从音乐队列中移动 **{title}** 至 {index}",
+		"args": {
+			"movefrom": "Slot to move from",
+			"moveto": "Slot to move to"
+		}
+	},
+	"nowplaying": {
+		"description": "显示现在播放什么",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"embedTitle": "正在播放",
+		"live": " ◉ 直播",
+		"timeRemaining": "剩余时间: {time}"
+	},
+	"pause": {
+		"description": "暂停当前歌曲",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"result": "<@{author}> ⏸ 暂停了歌曲"
+	},
+	"ping": {
+		"description": "查看机器人延迟平均值",
+		"result": "📈 API延迟平均值: {ping} 毫秒"
+	},
+	"play": {
+		"description": "播放 YouTube 的音乐",
+		"errorNotChannel": "你必须先加入语音频道!",
+		"errorNotInSameChannel": "你必须跟 {user} 在同一个频道裡",
+		"usageReply": "用法: {prefix}play <YouTube 网址 | 影片名称>",
+		"missingPermissionConnect": "无法连结至语音频道，没有权限",
+		"missingPermissionSpeak": "无法发言，没有权限",
+		"queueAdded": "✅ **{title}** 已经被 <@{author}> 加入音乐队列",
+		"cantJoinChannel": "无法加入语音频道: {error}",
+		"queueEnded": "❌ 音乐队列完结",
+		"queueError": "错误: {error}",
+		"startedPlaying": "🎶 开始播放: **{title}**",
+		"skipSong": "<@{author}> ⏩ 跳过了歌曲",
+		"pauseSong": "<@{author}> ⏸ 暂停了歌曲 music.",
+		"resumeSong": "<@{author}> ▶ 恢复了音乐!",
+		"unmutedSong": "<@{author}> 🔊 解除静音了!",
+		"mutedSong": "<@{author}> 🔇 静音了音乐!",
+		"decreasedVolume": "<@{author}> 🔉 降低了音量, 目前音量为 {volume}%",
+		"increasedVolume": "<@{author}> 🔊 增加了音量, 目前音量为 {volume}%",
+		"loopSong": "<@{author}> 重复播放，目前是 {loop}",
+		"stopSong": "<@{author}> ⏹ 停止了歌曲!",
+		"leaveChannel": "正在离开语音频道...",
+		"songNotFound": "没有找到曲目",
+		"songAccessErr": "视频不可用"
+	},
+	"playlist": {
+		"description": "播放 YouTube 的播放清单",
+		"usagesReply": "用法: {prefix}playlist <YouTube 播放清单网址 | 播放清单名称>",
+		"errorNotChannel": "你必须先加入语音频道!",
+		"errorNotInSameChannel": "你必须跟 {user} 在同一个频道裡",
+		"missingPermissionConnect": "无法加入语音频道，没有讯息",
+		"missingPermissionSpeak": "我无法在语音频道裡说话，请确定我有相关的权限!",
+		"errorNotFoundPlaylist": "没有找到播放清单 :(",
+		"fetchingPlaylist": "⌛ 正在取得播放清单...",
+		"playlistCharLimit": "\n播放清单大于限制的歌曲数目...",
+		"startedPlaylist": "<@{author}> 开始播放播放清单",
+		"cantJoinChannel": "无法加入语音频道: {error}"
+	},
+	"queue": {
+		"description": "列出音乐队列",
+		"missingPermissionMessage": "没有 {permission} 权限",
+		"errorNotQueue": "❌ **现在没有任何歌曲正在播放**",
+		"currentPage": "目前页面 - ",
+		"embedTitle": "音乐队列\n",
+		"embedCurrentSong": "**当前歌曲 - [{title}]({url})**\n\n{info}"
+	},
+	"remove": {
+		"description": "从音乐队列里移除歌曲",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"usageReply": "用法: {prefix}remove <歌曲编号>",
+		"result": "<@{author}> ❌ 从队列里移除了 **{title}**"
+	},
+	"resume": {
+		"description": "恢復播放",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"resultNotPlaying": "<@{author}> ▶ 恢復了播放!",
+		"errorPlaying": "队列没有被暂停"
+	},
+	"search": {
+		"description": "搜寻以及选择歌曲",
+		"usageReply": "用法: {prefix}{name} <影片名称>",
+		"errorAlreadyCollector": "讯息接收器已经在这个频道上启用",
+		"errorNotChannel": "你必须先加入语音频道!",
+		"resultEmbedTitle": "**回复你想要播放的歌曲代码**",
+		"resultEmbedDesc": "搜寻{search}的结果",
+		"optionQuery": "Search query"
+	},
+	"shuffle": {
+		"description": "随机排序音乐队列",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"result": "<@{author}> 🔀 随机排序了音乐队列"
+	},
+	"skip": {
+		"description": "跳过当前歌曲",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"result": "<@{author}> ⏭ 跳过了歌曲"
+	},
+	"skipto": {
+		"description": "跳到指定的歌曲",
+		"usageReply": "用法: {prefix}{name} <歌曲编号>",
+		"errorNotQueue": "现在没有任何歌曲在播放",
+		"errorNotValid": "目前队列里只有 {length} 首歌!",
+		"result": "<@{author}> ⏭ 跳过了 {arg} 歌曲",
+		"args": {
+			"number": "The queue number to skip to"
+		}
+	},
+	"stop": {
+		"description": "停止音乐队列",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"result": "<@{author}> ⏹ 停止了队列!"
+	},
+	"uptime": {
+		"description": "查看WBB在线时间",
+		"result": "时间: `{days} 天,{hours} 小时, {minutes} 分钟, {seconds} 秒`"
+	},
+	"volume": {
+		"description": "变更目前歌曲音量",
+		"errorNotQueue": "现在没有任何歌曲正在播放",
+		"errorNotChannel": "你必须先加入语音频道!",
+		"currentVolume": "🔊 当前音量为: **{volume}%**",
+		"errorNotNumber": "用数字来变更音量",
+		"errorNotValid": "用 0 - 100 的数字",
+		"result": "音量设置为: **{arg}%**"
+	},
+	"common": {
+		"on": "**启动**",
+		"off": "**关闭**",
+		"enabled": "**开启**",
+		"disabled": "**关闭**",
+		"errorNotChannel": "请先先加入一个Voice Channel",
+		"cooldownMessage": "等 {time} 秒后再用 `{name}` ",
+		"errorCommand": "错误"
+	}
 }

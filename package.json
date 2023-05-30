@@ -1,8 +1,10 @@
 {
 	"name": "wbb",
-	"version": "2.3.1",
-	"type": "module",
-	"description": "Discord music bot built with discord.js",
+	"version": "2.7.0",
+	"compilerOptions": {
+		"module": "CommonJS"
+	},
+	"description": "Discord music bot",
 	"main": "index.ts",
 	"author": "WenBin Lin",
 	"private": true,
@@ -17,24 +19,27 @@
 		"commit": "cz"
 	},
 	"dependencies": {
-		"@discordjs/voice": "^0.13.0",
-		"@types/i18n": "^0.13.5",
-		"@types/node": "^18.11.9",
+		"@discordjs/voice": "^0.16.0",
 		"array-move": "^3.0.1",
-		"cz-conventional-changelog": "^3.0.1",
-		"discord.js": "^13",
+		"discord.js": "^14.9.0",
 		"dotenv": "^16.0.3",
 		"ffmpeg-static": "^4.4.1",
 		"i18n": "^0.15.1",
-		"libsodium-wrappers": "^0.7.10",
 		"lyrics-finder": "^21.0.5",
-		"nodemon": "^2.0.20",
+		"play-dl": "^1.9.6",
 		"soundcloud-downloader": "^0.2.3",
 		"string-progressbar": "^1.0.4",
-		"ts-node": "^10.9.1",
 		"youtube-sr": "~4.3.0",
-		"ytdl-core": "^4.11.2",
-		"ytdl-core-discord": "^1.3.1"
+		"@types/i18n": "^0.13.6",
+		"@types/node": "^20.2.5",
+		"cz-conventional-changelog": "^3.0.1",
+		"nodemon": "^2.0.22",
+		"ts-node": "^10.9.1",
+		"@discordjs/opus": "^0.9.0",
+		"libsodium-wrappers": "^0.7.11",
+		"opusscript": "^0.1.0",
+		"sodium-native": "^3.4.1",
+		"tweetnacl": "^1.0.3"
 	},
 	"config": {
 		"commitizen": {
