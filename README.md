@@ -97,9 +97,3 @@ Examples: `1` or `1,2,3`
 - Command Handler from [discordjs.guide](https://discordjs.guide/)
 - Media Controls via Reactions
 
-## 🌎 Locales
-
-Currently available locales are:
-
-- English (en)
-- Simplified Chinese (zh_cn)
