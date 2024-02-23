@@ -1,6 +1,6 @@
 ## Discord Music Bot
 
-The bot is currently hosts through [bot-hosting](https://bot-hosting.net/), to invite the bot to your server click [here](https://discord.com/api/oauth2/authorize?client_id=1056656249581740122&permissions=2184185856&scope=applications.commands%20bot)
+The bot is currently hosts through digital ocean, to invite the bot to your server click [here](https://discord.com/api/oauth2/authorize?client_id=1056656249581740122&permissions=2184185856&scope=applications.commands%20bot)
 
 The bot is built in typescript with discord.js, multiple libraries to handle YouTube videos, ffmpeg and libsodium-wrappers for processing audios etc..
 
@@ -97,9 +97,3 @@ Examples: `1` or `1,2,3`
 - Command Handler from [discordjs.guide](https://discordjs.guide/)
 - Media Controls via Reactions
 
-## 🌎 Locales
-
-Currently available locales are:
-
-- English (en)
-- Simplified Chinese (zh_cn)
