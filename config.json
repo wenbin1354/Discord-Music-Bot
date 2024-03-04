@@ -1,4 +1,5 @@
 {
+  
   "TOKEN": "this is your token",
   "MAX_PLAYLIST_SIZE": 600,
   "PRUNING": false,
