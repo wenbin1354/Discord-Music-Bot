@@ -2,6 +2,7 @@ import { AudioResource, createAudioResource, StreamType } from "@discordjs/voice
 import youtube from "youtube-sr";
 import { i18n } from "../utils/i18n";
 import { videoPattern, isURL } from "../utils/patterns";
+import ytdl from "ytdl-core";
 
 const { stream, video_basic_info } = require("play-dl");
 
@@ -60,20 +61,20 @@ export class Song {
     }
   }
 
-  public async makeResource(): Promise<AudioResource<Song> | void> {
+  public async makeResource(): Promise<AudioResource | void> {
     let playStream;
-
-    let type = this.url.includes("youtube.com") ? StreamType.Opus : StreamType.OggOpus;
 
     const source = this.url.includes("youtube") ? "youtube" : "soundcloud";
 
     if (source === "youtube") {
-      playStream = await stream(this.url);
+      playStream = ytdl(this.url, { filter: "audioonly", liveBuffer: 0, quality: "lowestaudio" });
     }
 
     if (!stream) return;
 
-    return createAudioResource(playStream.stream, { metadata: this, inputType: playStream.type, inlineVolume: true });
+    if (!playStream) throw new Error("No stream found");
+
+    return createAudioResource(playStream, { metadata: this, inlineVolume: true });
   }
 
   public startMessage() {
