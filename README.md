@@ -4,8 +4,6 @@ The bot is currently hosts through digital ocean, to invite the bot to your serv
 
 The bot is built in typescript with discord.js, multiple libraries to handle YouTube videos, ffmpeg and libsodium-wrappers for processing audios etc..
 
-The js folder contains the compiled javascript files from the typescript files in order to deploy.
-
 ## Getting Started
 
 ```sh
