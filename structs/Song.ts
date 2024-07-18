@@ -32,9 +32,12 @@ export class Song {
       songInfo = await video_basic_info(url);
 
       return new this({
-        url: songInfo.video_details.url,
-        title: songInfo.video_details.title,
-        duration: parseInt(songInfo.video_details.durationInSec)
+        // url: songInfo.video_details.url,
+        // title: songInfo.video_details.title,
+        // duration: parseInt(songInfo.video_details.durationInSec)
+        url: url,
+        title: "",
+        duration: 0
       });
     } else {
       const result = await youtube.searchOne(search);
@@ -54,9 +57,12 @@ export class Song {
       songInfo = await video_basic_info(`https://youtube.com/watch?v=${result.id}`);
 
       return new this({
-        url: songInfo.video_details.url,
-        title: songInfo.video_details.title,
-        duration: parseInt(songInfo.video_details.durationInSec)
+        // url: songInfo.video_details.url,
+        // title: songInfo.video_details.title,
+        // duration: parseInt(songInfo.video_details.durationInSec)
+        url: url,
+        title: "",
+        duration: 0
       });
     }
   }
