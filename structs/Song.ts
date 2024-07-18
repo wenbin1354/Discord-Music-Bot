@@ -29,15 +29,12 @@ export class Song {
     let songInfo;
 
     if (isYoutubeUrl) {
-      // songInfo = await video_basic_info(url);
+      songInfo = await video_basic_info(url);
 
       return new this({
-        // url: songInfo.video_details.url,
-        // title: songInfo.video_details.title,
-        // duration: parseInt(songInfo.video_details.durationInSec)
-        url: url,
-        title: "",
-        duration: 0
+        url: songInfo.video_details.url,
+        title: songInfo.video_details.title,
+        duration: parseInt(songInfo.video_details.durationInSec)
       });
     } else {
       const result = await youtube.searchOne(search);
@@ -54,15 +51,12 @@ export class Song {
         throw err;
       }
 
-      // songInfo = await video_basic_info(`https://youtube.com/watch?v=${result.id}`);
+      songInfo = await video_basic_info(`https://youtube.com/watch?v=${result.id}`);
 
       return new this({
-        // url: songInfo.video_details.url,
-        // title: songInfo.video_details.title,
-        // duration: parseInt(songInfo.video_details.durationInSec)
-        url: url,
-        title: "Title Function Still In Development",
-        duration: 0
+        url: songInfo.video_details.url,
+        title: songInfo.video_details.title,
+        duration: parseInt(songInfo.video_details.durationInSec)
       });
     }
   }
