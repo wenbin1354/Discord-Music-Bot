@@ -1,3 +1,6 @@
+# Deprecated
+because of youtube and google updates to their api, aka banning database ips etc.. the bot is no longer working
+
 ## Discord Music Bot
 
 The bot is currently hosts through digital ocean, to invite the bot to your server click [here](https://discord.com/api/oauth2/authorize?client_id=1056656249581740122&permissions=2184185856&scope=applications.commands%20bot)
